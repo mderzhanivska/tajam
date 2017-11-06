@@ -1,0 +1,30 @@
+$cyan: #00e0d0;
+$white: #fff;
+$blue: #4aa3cc;
+$grey: #413d4b;
+
+/* media-const */
+$phone-min: "min-device-width : 320px";
+$phone-max: "max-device-width : 480px";
+$tablet-min: "min-device-width : 768px";
+$tablet-max: "max-device-width : 900px";
+$desktop: "min-width : 1224px";
+$large-screen: "min-width : 1824px";
+
+
+@media only screen and ($phone-min) and ($phone-max) {
+
+}
+
+
+@media only screen and ($tablet-min) and ($tablet-max) {
+
+}
+
+@media only screen  and ($desktop) {
+
+}
+
+@media only screen  and ($large-screen) {
+
+}
