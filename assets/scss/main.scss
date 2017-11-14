@@ -29,7 +29,7 @@ h1 {
 	letter-spacing: 0.32px;
 	text-transform: capitalize;
 	@media only screen and ($phone-min) and ($phone-max) {
-		font-size: 20px;
+		font-size: 30px;
 	}
 
 }
@@ -48,14 +48,23 @@ button {
 	text-transform: uppercase;
 	font-family: 'HammersmithOne-Regular';
 	font-weight: 400;
+	cursor: pointer;
 	color: $cyan;
 	background-color: transparent;
 	border: 1px solid $cyan;
 	font-size: 16px;
+	&:hover {
+		background-color: $cyan;
+		color: $white;
+		transition: 0.2s ease-in;
+		border: 1px solid $blue;
+		animation: colorChange 2s;
+		animation-iteration-count: infinite; 
+	}
 	@media only screen and ($phone-min) and ($phone-max) {
-		width: 250px;
-		height: 100px;
-		font-size: 30px;
+		width: 150px;
+		height: 50px;
+		font-size: 20px;
 	}
 
 
@@ -75,10 +84,10 @@ header {
 	background-repeat: no-repeat;
 	background-size: cover;
 	.navbar {
+		display: flex;
+		justify-content: space-between;
 		.logo {
-			display: inline-block;
 			padding-top: 15px;
-			margin-left: 0px;
 			img {
 				float: left;
 				clear: both;
@@ -87,7 +96,6 @@ header {
 				max-height: 50px;
 				width: 100%;
 				height: 100%;
-
 			}
 			p {
 				display: inline-block;
@@ -102,10 +110,15 @@ header {
 			}
 		}
 		.navigation {
-			position: absolute;
-			right: -22px;
+			line-height: 1;
 			display: inline-block;
-			padding-top: 27px;	
+			padding-top: 31px;
+			ul {
+				li {
+					list-dstyle-type: none;
+					display: inline-block;
+				}
+			}	
 			a {
 				color: $white;
 				text-decoration: none;
@@ -114,10 +127,31 @@ header {
 				text-transform: uppercase;
 				font-weight: 400;
 				letter-spacing: 0.33px;
-				margin-right: 20px;
-				&:hover {
-					color: $cyan;
+				padding: 0 10px;
+				&:after {
+					content: '';
+			    display: block;
+			    width: 0;
+			    height: 2px;
+			    background: $cyan;
+			    transition: width .3s;
+			    margin-top: 10px;
 				}
+				&:hover:after {
+					color: $cyan;
+					width: 100%;
+				}
+			}
+		}
+		@media only screen and ($phone-min) and ($phone-max) {
+			display: flex;
+			justify-content: center;
+			.logo {
+				display: flex;
+
+			}
+			.navigation {
+				display: none;
 			}
 		}
 	}
@@ -164,17 +198,34 @@ header {
 
 			}
 		}
+		@media only screen and ($phone-min) and ($phone-max) {
+			padding-top: 50px;
+			p {
+				padding: 30px 10px 0 10px;
+			}
+			.dots {
+				padding-top: 50px;
+			}
+		}
 	}
 }
 .content {
 	padding-top: 70px;
-	padding-bottom: 70px;
+	padding-bottom: 68px;
 	.about {
 		text-align: center;
 		display: flex;
 		margin-left: 65px;
 		.left {
 			margin-right: 99px;
+			img {
+				&:hover {
+					// transform: rotateZ(-360deg);
+					// transition: 0.5s ease-in-out;
+					animation: swing 0.7s ease;
+       		animation-iteration-count: 1;
+				}
+			}
 		}
 		.right {
 			text-align: left;
@@ -182,20 +233,20 @@ header {
 			color: $grey;
 			h2 {
 				padding-left: 3px;
-				margin-top: -7px;
+				line-height: 1;
 			}
 			p {
-				padding-top: 13px;
+				padding-top: 20px;
 				font-family: 'Roboto-Regular';
 				font-size: 14px;
 				font-style: light;
 				font-weight: 300;
 				line-height: 22px;
 				letter-spacing: 0.3px;
-				padding-bottom: 13px;
+				
 			}
 			button {
-				margin-top: 13px;
+				margin-top: 30px;
 			}
 			
 
@@ -206,7 +257,6 @@ header {
 			display: inline-block;
 			margin-left: 0;
 			.left {
-				padding-top: 20px;
 				margin: 0 auto;
 			}
 			.right {
@@ -215,9 +265,10 @@ header {
 				margin: 0 auto;
 				h2 {
 					font-size: 35px;
+					padding-bottom: 50px;
 				}
 				p {
-					padding-top: 50px;
+					padding: 10px 10px 0 10px;;
 				}
 				button {
 					margin-top: 50px;
@@ -231,15 +282,19 @@ header {
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
-	padding-bottom: 193px;
+	padding-bottom: 195px;
+	padding-top: 200px;
 	button {
-		margin-top: 200px;
+		
 		margin-left: -6px;
 		background: transparent;
 		border: 3px solid $white;
 		border-radius: 50%;
 		width: 103px;
 		height: 103px;
+		&:hover {
+			background-color: $cyan;	
+		}
 		img {
 			margin-left: 6px;
 		}
@@ -257,10 +312,10 @@ header {
 	}
 }
 .expertize {
+	text-align: center;
 	padding-top: 64px;
-	padding-bottom: 25px;
+	padding-bottom: 23px;
 	.title {
-		text-align: center;
 		
 		p {
 			padding-top: 2px;
@@ -280,10 +335,10 @@ header {
 		}
 	}
 	.items {
-		text-align: center;
 		display: flex;
-		flex-direction: column;
+		// flex-direction: column;
 		justify-content: space-between;
+		flex-wrap: wrap;
 		padding-top: 75px;
 		ul {
 			li {
@@ -319,20 +374,18 @@ header {
 	@media only screen and ($phone-min) and ($phone-max) {
 		.items {
 			display: block;
-			padding-top: 20px;
+			padding-top: 15px;
 			padding-bottom: 50px;
 			ul {
 				li {
 					width: auto;
 					height: auto;
-					border-bottom: 1px solid $grey;
 					padding-top: 50px;
 					h3 {
-						font-size: 25px;
+						font-size: 12px;
 					}
 					p {
-						font-size: 30px;
-						line-height: 55px;
+						font-size: 16px;
 					}
 				}
 			}
@@ -422,6 +475,14 @@ header {
 				
 			}
 		}
+		@media only screen and ($tablet-min) and ($tablet-max) {
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				margin: 40px 40px;
+				justify-content: center;
+			}
+		}
 	}
 	.bottom {
 		text-align: center;
@@ -442,9 +503,9 @@ header {
 		@media only screen and ($phone-min) and ($phone-max) {
 			padding-top: 40px;
 			button {
-				width: 300px;
-				height: 150px;
-				font-size: 30px;
+				width: 150px;
+				height: 50px;
+				font-size: 15px;
 				margin-top: 50px; 
 			}
 		}
@@ -480,21 +541,21 @@ header {
 				}
 			}
 		}
+		@media only screen and ($tablet-min) and ($tablet-max) {
+			
+		}
+
 	}
 	.projects {
-		
 		padding-top: 63px;
-
 		ul {
 			display: flex;
 			flex-wrap: wrap;
-			
 			text-align: center;
-			
 			li {
 				display: inline-block;
 				list-style-type: none;
-				height: 200px;
+				height: auto;
 				width: 16.66%;
 				img {
 					width: 100%;
@@ -523,9 +584,9 @@ header {
 		}
 		@media only screen and ($phone-min) and ($phone-max) {
 			button {
-				width: 250px;
-				height: 100px;
-				font-size: 30px;
+				width: 150px;
+				height: 50px;
+				font-size: 15px;
 			}
 		}
 	}
@@ -584,17 +645,19 @@ header {
 		.text {
 			h2 {
 				font-size: 200px;
-				line-height: 150px;
 			}
 			h3 {
-				padding-top: 90px;
+				
+			}
+			p {
+				padding: 0 30px;
 			}
 		}
 	}
 }
 .contact {
 	padding-top: 61px;
-	padding-bottom: 67px;
+	padding-bottom: 70px;
 	.contact-form {
 		display: inline-block;
 		margin-right: 92px;
@@ -603,11 +666,16 @@ header {
 		}
 		form {
 			padding-top: 24px;
+			
 			input {
-				padding-left: 20px;
+				color: $grey;
+				font-size: 15px;
+				opacity: 50%;
+				text-transform: capitalize;
+				padding: 0 20px;
 				margin-bottom: 22px;
 				display: block;
-				min-width: 463px;
+				max-width: 463px;
 				min-height: 47px;
 				width: 100%;
 				border: 1px solid #ccc;
@@ -621,8 +689,28 @@ header {
 					letter-spacing: 0.7px;
 				}
 			}
+			textarea {
+				width: 100%;
+				height: 200px;
+				border: 1px solid #ccc;
+				resize: none;
+				color: $grey;
+				font-size: 15px;
+				opacity: 50%;
+				text-transform: capitalize;
+				padding-left: 20px;
+				padding-top: 15px;
+				&::placeholder {
+					opacity: .5;
+					font-size: 14px;
+					font-family: 'Roboto-Regular';
+					font-weight: 300;
+					color: $grey;
+					letter-spacing: 0.7px;
+				}
+			}
 			button {
-				margin-top: 150px;
+				margin-top: 10px;
 			}
 		}
 	}
@@ -663,11 +751,16 @@ header {
 		}
 	}
 	@media only screen and ($tablet-min) and ($tablet-max) {
+		text-align: center;
+
 		.contact-form {
-			margin-right: 50px;
+			text-align: center;
+			margin: 0 auto;
+			input {
+				width: 100%;
+			}
 		}
 		.client {
-			
 			margin: 0 auto;
 		}
 	}
@@ -711,10 +804,10 @@ footer {
 			}
 		}
 		.center {
-			width: 280px;
+			// width: 280px;
 			display: inline-block;
 			vertical-align: top;
-			margin-right: 40px;
+			// margin-right: 40px;
 			h2 {
 				padding-top: 14px;
 				font-size: 15px;
@@ -733,7 +826,7 @@ footer {
 				
 				padding-right: 18px;
 			}
-			p {	
+			address {	
 				padding-bottom: 6px;
 				display: inline-block;
 				font-size: 14px;
@@ -742,6 +835,12 @@ footer {
 				line-height: 26px;
 				color: $white;
 				letter-spacing: 0.35px;
+			}
+			a {
+				text-decoration: none;
+				color: $white;
+				font-family: 'Roboto-Regular';
+				font-weight: 400;
 			}
 		}
 		.right {
@@ -766,7 +865,11 @@ footer {
 					border: 1px solid $white;
 					opacity: .5;
 					background-color: transparent;
-					margin-right: 7px;
+					// margin-right: 7px;
+					color: $white;
+					font-size: 15px;
+					padding: 0 15px;
+					text-transform: capitalize;
 					&::placeholder {
 					opacity: .75;
 					font-size: 14px;
@@ -774,7 +877,6 @@ footer {
 					font-weight: 300;
 					color: $white;
 					letter-spacing: 0.7px;
-					padding-left: 20px;
 					}
 				}
 				button {
@@ -852,16 +954,18 @@ footer {
 			.left {
 				display: block;
 				text-align: center;
+				margin: 0;
 				img {
 					float: none;
 					width: 15%;
 				}
 				span {
-					font-size: 100px;
+					font-size: 30px;
 				}
 				p {
 					width: 100%;
 					font-size: 10px;
+					padding: 30px 10px 0 10px;
 				}
 			}
 			.center {
@@ -869,12 +973,12 @@ footer {
 				padding-top: 50px;
 				text-align: center;
 				h2 {
-					font-size: 40px;
+					font-size: 20px;
 				}
-				p {
-					padding-top: 50px;
+				address {
+					padding-top: 10px;
 					display: block;
-					font-size: 30px;
+					font-size: 13px;
 					line-height: 40px;
 				}
 			}
@@ -883,9 +987,10 @@ footer {
 				text-align: center;
 				padding-top: 50px;
 				h2 {
-					font-size: 12px;
+					font-size: 20px;
 				}
 				.newsletter {
+					padding-top: 20px;
 					input {
 						width: 100%;
 					}
@@ -896,8 +1001,8 @@ footer {
 				}
 				.social-media {
 					button {
-						width: 100px;
-						height: 100px;
+						width: 60px;
+						height: 60px;
 						vertical-align: top;
 						margin-top: 50px;
 						img {
@@ -914,10 +1019,11 @@ footer {
 					.left {
 						text-align: center;
 						display: block;
+						margin: 0 auto;
 						a {
-							font-size: 30px; 
-							margin-right: 30px;
-							margin-left: 30px;
+							font-size: 10px; 
+							// margin-right: 30px;
+							// margin-left: 30px;
 						}
 					}
 					.right {
@@ -932,6 +1038,7 @@ footer {
 	}
 	@media only screen and ($tablet-min) and ($tablet-max) {
 		.items {
+			text-align: center;
 			.left {
 				margin-right: 10px;
 			}
